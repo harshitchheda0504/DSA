@@ -31,6 +31,6 @@ Both have the same definition
 |-- | -- |
 | **Input** | Can take 0 or more inputs |
 | **Output** | Must generate atleast 1 output/result |
-| **Definiteness** | Every statement inside the algorithm must be unambigious and must have single and exact meaning. Every statement should be rational and  solvable. Eg. we cannot pass or ask our algorithm to store <span>&#8730;</span>-2 as its imaginary and if we cannot solve it, we cannot ask our computers to solve that |
+| **Definiteness** | Every statement inside the algorithm must be unambigious and must have single and exact meaning. Every statement should be rational and  solvable. Eg. we cannot pass or ask our algorithm to store 	&radic;-2 as its imaginary and if we cannot solve it, we cannot ask our computers to solve that |
 | **Finiteness** | Algorithm must terminate at some point |
 | **Effectiveness** | There should not be unneccessary statements in the algorithm. Every statements objective should be to server some purpose for the desired outcome of an algorithm |
