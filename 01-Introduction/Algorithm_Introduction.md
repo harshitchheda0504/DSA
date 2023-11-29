@@ -25,3 +25,11 @@ Both have the same definition
 | **Done on Algorithms** to study them in detail and understand how they work and get the result | **Done on program** to know the result post execution of it |
 | The result is in terms of **time and space complexity** | The result is in terms of **watch time** its taking and the **amount of memory** it is consuming in tersm of bytes |
 | As the purpose is to study algorithms, its **language and hardware independent** | As the results are in actual watch time and amount of memory the program takes to execute, its **language, hardware and exvironment/OS dependent** |
+
+## Characteristics of Algorithm
+| **Input** | Can take 0 or more inputs |
+| **Output** | Must generate atleast 1 output/result |
+| **Definiteness** | Every statement inside the algorithm must be unambigious and must have single and exact meaning. Every statement should be rational and  solvable. Eg. we cannot pass or ask our algorithm to store $$ \sqrt{-2} $$ as its imaginary and if we cannot solve it, we cannot ask our computers to solve that |
+
+
+This sentence uses `$` delimiters to show math inline:  $\sqrt{3x-1}+(1+x)^2$
