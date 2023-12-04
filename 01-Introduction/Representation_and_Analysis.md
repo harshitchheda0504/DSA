@@ -60,7 +60,7 @@ There days along with computers many handheld devices are revolutionizing the ec
 ### Few key points to remember while analyzing an algorithm
 - Every simple statement is considered to be consuming 1 unit of time
 - If an algorithm depends on another algorithm to reach the outcome, then analyzing the external algorithm is important to decide on the complexity
-- For space complexity, we should consider the number of storage containers/variables we are utilizing to reach the outome
+- For space complexity, we should consider the number of storage containers/variables we are utilizing if its a simple container else if its a collection like list/arrays then we consider the number of items that collection can hold to reach the outome
 
 ```
 Algorithm swap(a,b)    |    Time complexity  |    Space Complexity
