@@ -263,7 +263,7 @@ _Eg:_
 | ... | ... |
 | k | 1+2+3+4+...+k = $`\frac{k*(k+1)}{2}`$ |
 
-The loop doesn't run till n but exits at `i=k`</br>
+The loop doesn't jump n times but exits at `i=k` as evident from the fact that before `i` even reached `n`, `p` will already exceed it </br>
 The loop exits when: `p > n` </br>
 since, p = $`\frac{k*(k+1)}{2}`$ </br>
 Therefore, $`\frac{k*(k+1)}{2}`$ > n   &rarr;   $`k^2`$ > n   &rarr;   k > $`\sqrt{n}`$
