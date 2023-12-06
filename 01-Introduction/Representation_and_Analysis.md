@@ -171,3 +171,103 @@ Algorithm Multiply(A,B,n)                              Time Complexity
 7. variable k
 
  Overall Space complexity is, _S(n) = 3n<sup>2</sup> + 4_ or O(n<sup>2</sup>)
+
+#### FOR-LOOP Time Complexity analysis
+_Eg:_
+```
+  for(i=0; i<n; i++)         ----> n+1
+  {
+    stmt;                    ----> n
+  }
+```
+**Time Complexity:**  O(n)
+
+_Eg:_
+```
+  for(i=n; i>0; i--)         ----> n+1
+  {
+    stmt;                    ----> n
+  }
+```
+**Time Complexity:**  O(n)
+
+_Eg:_
+```
+  for(i=1; i<n; i=i+2)         ----> n/2 + 1
+  {
+    stmt;                     ----> n/2
+  }
+```
+**Time Complexity:**  O(n)
+
+_Eg:_
+```
+  for(i=1; i<=n; i=i+20)         ----> n/20 + 1
+  {
+    stmt;                       -----> n/20
+  }
+```
+**Time Complexity:**  O(n)
+> Note: If FOR-LOOP counter increments by say, _i+a_ times; the frequency for it can be generalized as _n/a_. However, the time complexity for all such scenarios will always remain O(n).
+
+_Eg:_
+```
+  for(i=0; i<n; i++)         ----> n+1
+  {
+    for(j=0; j<n; j++)       ----> n*(n+1)
+  {
+    stmt;                   -----> n*n
+  }
+  }
+```
+**Time Complexity:**  O(n<sup>2</sup>)
+
+_Eg:_
+```
+  for(i=0; i<n; i++)         
+  {
+    for(j=0; j<i; j++)       
+    {
+      stmt;                   -----> n*n
+    }
+  }
+```
+| i | j | count |
+|---|---|---|
+| 0 | 0 ❌ | 0 |
+| 1 |  0 ✔️</br> 1 ❌ | 1 |
+| 2 | 0 ✔️</br> 1 ✔️</br> 2 ❌ | 2 |
+| 3 | 0 ✔️</br> 1 ✔️</br> 2 ✔️</br> 3 ❌ | 3 |
+| ... | ... | ...|
+| n | 0 ✔️</br> 1 ✔️</br> 2 ✔️</br> 3 ✔️</br> .</br> .</br> n ❌ | n |
+
+F(n) = 0 + 1 + 2 + 3 + .... + n = $`\frac{n*(n+1)}{2}`$ = $`\frac{n^2 + 1}{2}`$
+
+
+**Time Complexity:**  O($`n^2`$)
+
+_Eg:_
+```
+  p = 0;
+  for(i=1; p<=n; i++)         
+  {
+    p = p + i;
+  }
+```
+| i | p |
+|---|---|
+| 1 |  0+1 = 1 |
+| 2 |  1+2 = 3 |
+| 3 | 3+3 = 6 |
+| 4 | 6+4 = 10 |
+| ... | ... |
+| k | 1+2+3+4+...+k = $`\frac{k*(k+1)}{2}`$ |
+
+The loop doesn't run till n but exits at `i=k`</br>
+The loop exits when: `p > n` </br>
+since, p = $`\frac{k*(k+1)}{2}`$ </br>
+Therefore, $`\frac{k*(k+1)}{2}`$ > n   &rarr;   $`k^2`$ > n   &rarr;   k > $`\sqrt{n}`$
+
+
+**Time Complexity:**  O($`\sqrt{n}`$)
+
