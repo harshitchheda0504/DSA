@@ -112,7 +112,7 @@ WHILE(i < n) {
     i = i + 1;
 } ENDWHILE
 ```
-is as good as writing `for(i=0; i<n; i++)` in C language. Time complexity for this would be _n+1_ since out of (1, n+1, n) frequencies for respective (i=0, i<n, i++) _n+1_ comes out as the most repeated and for simplicity we will consider the most repeated statment frequency
+is as good as writing `for(i=0; i<n; i++)` in C language. Frequency-count for this would be _n+1_ since out of (1, n+1, n) frequencies for respective (i=0, i<n, i++) _n+1_ comes out as the most repeated and for simplicity we will consider the most repeated statment frequency
 >Note: For future references, we will consider writing for loop instead of the pseudo code for better understanding and simplicity.
 
 _Eg:_
@@ -271,3 +271,199 @@ Therefore, $`\frac{k*(k+1)}{2}`$ > n   &rarr;   $`k^2`$ > n   &rarr;   k > $`\sq
 
 **Time Complexity:**  O($`\sqrt{n}`$)
 
+_Eg:_
+```
+  for(i=1; i<n; i=i*2)         
+  {
+    stmt;
+  }
+```
+| i  |
+|--- |
+| 1 |
+| 1*2 = 2 |
+| 2*2 = $`2^2`$ |
+| $`2^2`$*2 = $`2^3`$ |
+| ...|
+| $`2^k`$ |
+
+The loop doesn't jump n times but exits at $`i = 2^k`$ as evident from the fact that before `i` even reached `n`, $`2^k`$ will already exceed it </br>
+The loop exits when: `i >= n` </br>
+since, i = $`2^k`$ </br>
+Therefore, $`2^k`$ >= n   &rarr;     k >= $`log_2 n`$
+
+If you observe, value of $`log_2 n`$ can be decimal. However, when coming to frequency, it should be a whole value. For this example:</br>
+When n=8
+| i  |
+|--- |
+| 1 ✔️ |
+| 1*2 = 2 ✔️ |
+| 2*2 = $`2^2`$ = 4 ✔️ |
+| $`2^2`$*2 = $`2^3`$ = 8 ❌ |
+
+So, overall, loop ran for 3 times and also $`log_2 8 = 3`$.</br></br>
+Now, consider n=10
+| i  |
+|--- |
+| 1 ✔️ |
+| 1*2 = 2 ✔️ |
+| 2*2 = $`2^2`$ = 4 ✔️ |
+| $`2^2`$*2 = $`2^3`$ = 8 ✔️ |
+| $`2^3`$*2 = $`2^4`$ = 16 ❌ |
+
+So, overall the loop ran for 4 times. However, $`3 > log_2 10 > 4`$. So, we consider **ceil** value for this time complexity.
+
+**Time Complexity:**  O($`\lceil log_2 n \rceil`$)
+
+_Eg:_
+```
+  for(i=n; i>=1; i=i/2)         
+  {
+    stmt;
+  }
+```
+| i |
+|---|
+| n |
+| $`\frac n2`$ |
+| $`\frac {n}{2^2}`$ |
+| $`\frac {n}{2^3}`$ |
+| ...|
+| $`\frac {n}{2^k}`$|
+
+The loop doesn't jump n times but exits at $`i = \frac {n}{2^k}`$ as evident from the fact that before `i` even reached `1`, $`\frac {n}{2^k}`$ will already be less that it </br>
+The loop exits when: `i < 1` </br>
+since, i = $`\frac {n}{2^k}`$ </br>
+Therefore, $`\frac {n}{2^k}`$ < 1   &rarr;    n  < $`2^k`$ &rarr; k > $`log_2 n`$
+
+If you observe, value of $`log_2 n`$ can be decimal. However, when coming to frequency, it should be a whole value. For this example:</br>
+When n=8
+| i  |
+|--- |
+| 8 ✔️ |
+| $`\frac 82`$ = 4 ✔️ |
+| $`\frac 42`$ = 2 ✔️ |
+| $`\frac 22`$ = 1 ✔️ |
+| $`\frac 12`$ = 0.5 ❌ |
+
+So, overall, loop ran for 4 times. However, $`log_2 8 = 3`$.</br></br>
+Now, consider n=10
+| i  |
+|--- |
+| 10 ✔️ |
+| $`\frac {10}2`$ = 5 ✔️ |
+| $`\frac {5}2`$ = 2.5 ✔️ |
+| $`\frac {2.5}2`$ = 1.25 ✔️ |
+| $`\frac {1.25}2`$ = 0.75 ❌ |
+
+So, overall the loop ran for 4 times. However, $`3 > log_2 10 > 4`$. So, we consider **ceil** value for this time complexity.
+
+**Time Complexity:**  O($`\lceil log_2 n \rceil`$)
+
+_Eg:_
+```
+  for(i=0; i*i <= n; i++)         
+  {
+    stmt;
+  }
+```
+| i |
+|---|
+| 0|
+| 1*1 = 1 |
+| 2*2 = 4 |
+| 3*3 = 9 |
+| ... |
+| k*k = $`k^2`$
+
+The loop doesn't jump n times but exits at `i = k` as evident from the fact that before `i` even reached `n`, $`k^2`$ will already exceed it</br>
+The loop exits when: `i*i > n` </br>
+since, i = k</br>
+Therefore, $`k^2`$ > n   &rarr;    k > $`\sqrt n`$
+
+**Time Complexity:**  O($`\sqrt n`$)
+
+_Eg:_
+```
+// These are two independent loops
+  for(i=0; i<n; i++)                  ---->              n+1 ... for condition check
+  {
+    stmt;                             ---->              n
+  }
+  for(j=0; j<n; j++)                  ---->            n*(n+1) ... for condition check
+  {
+    stmt;                             ---->            n
+  }
+```
+**Time analysis** </br>
+ Overall Time complexity is, _F(n) = n + n = 2n_. Since, the degree of the polynomial is 1 we consider the time complexity to be O(n) or **Order of n**
+
+_Eg:_
+```
+  p = 0;
+  for(i=1; i < n; i=i*2)         
+  {
+    p++;
+  }
+  for(j=1; j < p; j=j*2)         
+  {
+    stmt;
+  }
+```
+From the previous examples, we know that, for the first loop
+```
+  for(i=1; i < n; i=i*2)         
+  {
+    p++;
+  }
+```
+the frequency is $`\lceil log_2 n \rceil`$. Meaning, p= $`\lceil log_2 n \rceil`$ as p's value and the loop count go hand in hand.</br>
+
+For the second loop
+```
+  for(j=1; j < p; j=j*2)         
+  {
+    stmt;
+  }
+```
+the frequency is $`\lceil log_2 p \rceil`$. However,  p= $`\lceil log_2 n \rceil`$.
+
+**Time Complexity:**  O($`\lceil log_2 (\lceil log_2 n \rceil) \rceil`$)
+
+_Eg:_
+```
+  for(i=0; i < n; i++)                         ---->          n+1
+  {
+      for(j=1; j < n; j=j*2)                   ---->          n*(logn)
+	  {
+	    stmt;                                    ---->          n*(logn)
+	  }
+  }
+  
+```
+F(n) = $`2nlog_2 n + n`$
+
+**Time Complexity:**  O($`nlog_2 n`$)
+
+**CheatSheet**
+| loop | Frequecy-count | time-complexity |
+|---|---|---|
+| for(i=0; i<n; i++) | n | O(n) |  |
+| for(i=0; i<n; i=i+2) | $`\frac n2`$ | O(n) | 
+| for(i=0; i<n; i=i+3) | $`\frac n3`$ | O(n) | 
+| for(i=0; i<n; i=i+200) | $`\frac {n}200`$ | O(n) |
+| for(i=n; i>1; i--) | n | O(n) |
+| for(i=n; i>1; i=i-2) | $`\frac n2`$ | O(n) |
+| for(i=n; i>1; i=i-3) | $`\frac n3`$ | O(n) |
+| for(i=n; i>1; i=i-200) | $`\frac {n}200`$ | O(n) |
+
+For linear increment/decrement, the time complexity will be O(n).
+
+| loop | Frequecy-count | time-complexity |
+|---|---|---|
+| for(i=1; i<n; i=i*2) | $`\lceil log_2 n \rceil`$ | O($`\lceil log_2 n \rceil`$) |
+| for(i=1; i<n; i=i*3) | $`\lceil log_3 n \rceil`$ | O($`\lceil log_3 n \rceil`$) |
+| for(i=n; i>1; i=i/2) | $`\lceil log_2 n \rceil`$ | O($`\lceil log_2 n \rceil`$) |
+| for(i=n; i>1; i=i/3) | $`\lceil log_3 n \rceil`$ | O($`\lceil log_3 n \rceil`$) |
+
+For power based increment/decrement, the time complexity will be O($`\lceil log_k n \rceil`$), where k is the power.
