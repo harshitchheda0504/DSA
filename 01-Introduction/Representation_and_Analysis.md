@@ -451,11 +451,11 @@ F(n) = $`2nlog_2 n + n`$
 | for(i=0; i<n; i++) | n | O(n) |  |
 | for(i=0; i<n; i=i+2) | $`\frac n2`$ | O(n) | 
 | for(i=0; i<n; i=i+3) | $`\frac n3`$ | O(n) | 
-| for(i=0; i<n; i=i+200) | $`\frac {n}200`$ | O(n) |
+| for(i=0; i<n; i=i+200) | $`\frac n{200}`$ | O(n) |
 | for(i=n; i>1; i--) | n | O(n) |
 | for(i=n; i>1; i=i-2) | $`\frac n2`$ | O(n) |
 | for(i=n; i>1; i=i-3) | $`\frac n3`$ | O(n) |
-| for(i=n; i>1; i=i-200) | $`\frac {n}200`$ | O(n) |
+| for(i=n; i>1; i=i-200) | $`\frac n{200}`$ | O(n) |
 
 For linear increment/decrement, the time complexity will be O(n).
 
