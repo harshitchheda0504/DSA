@@ -1,11 +1,3 @@
-<table>
- <tr>
-	 <td><a href=#">Home</a></td>
-	 <td><a href=#">Home</a></td>
-	 <td><a href=#">Home</a></td>
- </tr>
-</table>
-
 ## Time Functions
 ### Types of Time Functions
 | Label | Time Functions |
