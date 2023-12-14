@@ -436,7 +436,7 @@ _Eg:_
   {
       for(j=1; j < n; j=j*2)                   ---->          n*(logn)
 	  {
-	    stmt;                                    ---->          n*(logn)
+	    stmt;                              ---->          n*(logn)
 	  }
   }
   
@@ -467,3 +467,90 @@ For linear increment/decrement, the time complexity will be O(n).
 | for(i=n; i>1; i=i/3) | $`\lceil log_3 n \rceil`$ | O($`\lceil log_3 n \rceil`$) |
 
 For power based increment/decrement, the time complexity will be O($`\lceil log_k n \rceil`$), where k is the power.
+
+#### WHILE-LOOP Time Complexity analysis
+When it comes to while loops, its usually good to understand the inner working to come up with the time complexity.
+
+_Eg:_
+```
+	Algorithm GCD(a,b)
+	{
+		WHILE(a!=b)
+		{
+		   if( a > b )
+		   {
+		      a = a - b;
+		   }
+		   else
+		   {
+		      b = b - a;
+		   }
+		}
+	   return a;
+	}
+```
+When a = 16, b = 2
+| a | b |
+|---|---|
+| 16 | 2 |
+| 16-2=14 | 2 |
+| 14-2=12 | 2 |
+| 12-2=10 | 2 |
+| 10-2=8 | 2 |
+| 8-2=6 | 2 |
+| 6-2=4 | 2 |
+| 4-2=2 | 2 |
+
+When a = 6, b = 1
+| a | b |
+|---|---|
+| 6 | 1 |
+| 5 | 1 |
+| 4 | 1 |
+| 3 | 1 |
+| 2 | 1 |
+| 1 | 1 |
+
+When a=1, b=6; also the flow of fnction will be the same.</br>
+When a=16, b=15, also the flow of the function will be the same.</br>
+If you observe, the decrement of values of a,b are happening in a linear way like (i--, i=i-2, i=i-3, etc.). For such cases, we consider the time complexity as O(n) where n can atmost reach max(a,b).
+
+**Time Complexity:** O(n)
+
+#### IF-ELSE Conditional statements Time Complexity analysis
+_Eg:_
+
+```
+	Algorithm Test(n)
+	{
+	   if(n < 5)
+	   {
+	      stmt;
+	   }
+	   else
+	   {
+	      for(i=0; i<n; i++)
+	      {
+	         stmt;
+	      }
+	   }
+	}
+```
+Here, the best case would be O(1) when the if-block is executed and the worst case would be O(n) when the else-blcok with the for loop is executed.</br>
+> Note: There is no global rule that always IF block will be have the best case and ELSE block will have the workst case. It can vice-versa as well.
+
+_Eg:_
+
+```
+	Algorithm Test(n)
+	{
+	   if(n < 5)
+	   {
+	      for(i=0; i<n; i++)
+	      {
+	         stmt;
+	      }
+	   }
+	}
+```
+Here, there is no best/worst case. The time complexity will be O(n) when the IF-block get executed.
